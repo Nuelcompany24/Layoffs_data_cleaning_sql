@@ -1,0 +1,42 @@
+-- POPULARIZE NULLS 
+-- PURPOSE IS TO POPULARIZE ROWS WITHOUT DATA OR DELETE THEM IF NOT USEFUL 
+
+# SELECT AND VIEW ALL ROWS
+SELECT *
+FROM portfolio_table
+LIMIT 3000;
+
+# SELECT ROWS WHERE COMPANY IS NULL__0 ROWS RETURNED
+SELECT *
+FROM portfolio_table
+WHERE company = NULL OR ' ';
+
+# SELECT ROWS WHERE LOCATION IS NULL__0 ROWS RETURNED
+SELECT *
+FROM portfolio_table
+WHERE location IS NULL OR ' ';
+
+# SELECT ROWS WHERE INDUSTRY IS NULL__1 ROW RETURNED
+SELECT *
+FROM portfolio_table
+WHERE industry IS NULL OR ' ';
+
+# SELECT ROWS WHERE COUNTRY IS NULL__0 ROWS RETURNED
+SELECT *
+FROM portfolio_table
+WHERE country IS NULL OR ' ';
+
+# SELECT ALL ROWS WHERE COMPANY HAS "BALLY"__1 ROW RETURNED
+SELECT *
+FROM portfolio_table
+WHERE company LIKE '%Bally%';
+
+# SELECT ROWS THAT HAVE BOTH "total_laid_off" AND "percentage_laid_off" AS NULL__361 ROWS RETURNED
+SELECT *
+FROM portfolio_table
+WHERE total_laid_off IS NULL AND percentage_laid_off IS NULL;
+
+# DELETE ROWS THAT HAVE BOTH "total_laid_off" AND "percentage_laid_off" AS NULL__361 ROWS AFFECTED
+DELETE 
+FROM portfolio_table
+WHERE total_laid_off IS NULL AND percentage_laid_off IS NULL;
